@@ -42,24 +42,24 @@ call plug#end()
 set background=dark
 colorscheme PaperColor
 "wombat256mod " 256mod work with terminal
-"syntax enable           " enable syntax processing
 "set tabstop=4       " number of visual spaces per TAB
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 "set softtabstop=0   " number of spaces in tab when editing
 "set expandtab       " tabs are spaces
 set number              " show line numbers
 set showcmd             " show command in bottom bar
-"set cursorline          " highlight current line
+set cursorline          " highlight current line
 filetype indent on      " load filetype-specific indent files
-"set wildmenu            " visual autocomplete for command menu
-"set lazyredraw          " redraw only when we need to.
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set hlsearch            " highlight matches
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
-"set backspace=indent,eol,start "making backspace work normally, not default behavior
 set linebreak
+set breakindent
+set breakindentopt=shift:4
 
 "runtime macros/matchit.vim
 " turn off search highlight
@@ -74,6 +74,8 @@ nnoremap gV `[v`]
 " Leader
 let mapleader="\\"
 
+nnoremap init :tabe $MYVIMRC<CR>
+
 " jk is escape
 inoremap jk <esc>
 
@@ -81,7 +83,7 @@ inoremap jk <esc>
 "nnoremap <leader>u :GundoToggle<CR>
 
 " More natural moving around
-nnoremap <C-J> <C-W><C-J> 
+nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
@@ -191,6 +193,7 @@ let g:UltiSnipsSnippetsDir = "~/.vim/mySnippets"
 "}}}
 
 "autocmd BufNewFile,BufRead *.tex :VimtexTocOpen
+autocmd Filetype tex :VimtexTocOpen
 """" The following line MUST be at the last line for the folding to work.
 
 "" Faster saving and add to git {{{
